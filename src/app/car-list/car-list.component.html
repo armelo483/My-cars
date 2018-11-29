@@ -1,0 +1,201 @@
+<!--
+<div class="row"  style="margin-top:20px;" *ngFor="let car of cars;let i = index;" >
+
+	<div  *ngIf="i%3==0" class="col-sm-4">
+	<button type="button" class="close" aria-label="Close" (click)="onDeleteCar(cars[i])">
+  <span *ngIf="i%3==0" aria-hidden="true">×</span>
+</button>
+	<img style="max-width:400px;" height="160" width="400" *ngIf="cars[i]?.photo" [src]="cars[i]?.photo">
+	<p>{{cars[i]?.marque}}</p>
+	<p>{{cars[i]?.description}}</p>
+	<p>{{cars[i]?.prix}}</p>
+	</div>
+	
+	
+	<div  *ngIf="i%3==0" class="col-sm-4">
+	<button type="button" class="close" aria-label="Close" (click)="onDeleteCar(cars[i+1])">
+  <span *ngIf="(cars.length)%2==0" aria-hidden="true">×</span>
+</button>
+	<img style="max-width:400px;" height="160" width="400" *ngIf="cars[i+1]?.photo" [src]="cars[i+1]?.photo">
+	<p>{{cars[i+1]?.marque}}</p>
+	<p>{{cars[i+1]?.description}}</p>
+	<p>{{cars[i+1]?.prix}}</p>
+	</div>
+	
+	<div  *ngIf="i%3==0" class="col-sm-4">
+	<button type="button" class="close" style="background:yellow;" aria-label="Close" (click)="onDeleteCar(cars[i+2])">
+  <span *ngIf="(cars.length)%3==0" aria-hidden="true">×</span>
+</button>
+	<img style="max-width:400px;" height="160" width="400" *ngIf="cars[i+2]?.photo" [src]="cars[i+2]?.photo">
+	<p>{{cars[i+2]?.marque}}</p>
+	<p>{{cars[i+2]?.description}}</p>
+	<p>{{cars[i+2]?.prix}}</p>
+	</div>
+	
+</div>
+<nav class="fixed-bottom navbar-light bg-light" >
+  <a routerLink="/cars/new" class="btn-floating btn-large" >
+	<i class="fa fa-plus-circle" aria-hidden="true" style="font-size:50px;color:orange;"></i>
+  </a>
+</nav>
+
+-->
+
+
+<div style="margin-top:77px;margin-bottom:30px;">
+<div class="card-deck"  *ngFor="let car of cars;let i = index;">
+
+  <!-- Card -->
+  <div  class="card mb-4 animated slideInLeft" *ngIf="i%3==0 && cars[i]">
+  <div class="edit"><a href="#"><i class="fa fa-pencil fa-lg"></i></a></div>
+	
+
+  <button type="button" class="close" style="background:yellow;" aria-label="Close" (click)="onDeleteCar(cars[i])">
+  <span  aria-hidden="true">&#x2716;</span>
+</button>
+    <!--Card image-->
+    <div class="view overlay">
+      <img class="card-img-top" [src]="cars[i]?.photo" alt="">
+      <a href="#!">
+        <div class="mask rgba-white-slight"></div>
+      </a>
+    </div>
+
+    <!--Card content-->
+    <div class="card-body">
+
+      <!--Title-->
+      <h4 class="card-title">{{cars[i]?.marque}}</h4>
+      <!--Text-->
+      <p class="card-text">{{cars[i]?.description}}</p>
+      <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+      <button type="button" class="btn btn-light-blue btn-md">En savoir plus</button>
+
+    </div>
+
+  </div>
+  <!-- Card -->
+
+  <!-- Card -->
+  <div class="card mb-4 animated slideInLeft"  *ngIf="i%3==0 && cars[i+1]">
+  <div class="edit"><a href="#"><i class="fa fa-pencil fa-lg"></i></a></div>
+  
+  <button type="button" class="close" style="background:yellow;" aria-label="Close" (click)="onDeleteCar(cars[i+1])">
+  <span  aria-hidden="true">&#x2716;</span>
+</button>
+    <!--Card image-->
+    <div class="view overlay">
+      <img class="card-img-top" [src]="cars[i+1]?.photo" alt="">
+      <a href="#!">
+        <div class="mask rgba-white-slight"></div>
+      </a>
+    </div>
+
+    <!--Card content-->
+    <div class="card-body" *ngIf="cars[i+1]?.marque">
+
+      <!--Title-->
+      <h4 class="card-title">{{cars[i+1]?.marque}}</h4>
+      <!--Text-->
+      <p class="card-text">{{cars[i+1]?.description}}</p>
+      <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+      <button type="button" class="btn btn-light-blue btn-md">En savoir plus</button>
+
+    </div>
+
+  </div>
+  <!-- Card -->
+
+  <!-- Card -->
+  <div class="card mb-4 animated slideInLeft" *ngIf="i%3==0 && cars[i+2]">
+  <div class="edit"><a href="#"><i class="fa fa-pencil fa-lg"></i></a></div>
+<button type="button" class="close" style="background:yellow;" aria-label="Close" (click)="onDeleteCar(cars[i+2])">
+ <span aria-hidden="true">&#x2716;</span>
+</button>
+
+
+    <!--Card image-->
+    <div class="view overlay">
+      <img class="card-img-top" [src]="cars[i+2]?.photo" alt="">
+      <a href="#!">
+        <div class="mask rgba-white-slight"></div>
+      </a>
+    </div>
+
+    <!--Card content-->
+    <div class="card-body" >
+
+      <!--Title-->
+      <h4 class="card-title">{{cars[i+2]?.marque}}</h4>
+      <!--Text-->
+      <p class="card-text">{{cars[i+2]?.description}}</p>
+      <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+      <button type="button" class="btn btn-light-blue btn-md">En savoir plus</button>
+
+    </div>
+
+  </div>
+  <!-- Card -->
+
+</div>
+<!-- Card deck -->
+
+
+<!-- Card deck -->
+
+
+
+<nav class="fixed-bottom navbar-light bg-light" >
+  <a routerLink="/cars/new" class="btn-floating btn-large" >
+	<i class="fa fa-plus-circle" aria-hidden="true" style="font-size:50px;color:orange;"></i>
+  </a>
+</nav>
+
+<style>
+.view.overlay{
+height:150px;
+}
+.card{
+max-width:30%;
+}
+.edit{
+padding-top: 7px;	
+	padding-right: 7px;
+	position: absolute;
+	right: 0;
+	top: 0;
+	z-index: 3;
+	display: none;
+}
+
+.edit a {
+	color: #000;
+	
+}
+
+.card:hover {
+
+background:grey;
+
+}
+
+.close span{
+padding-top: 7px;	
+	padding-right: 10px;
+	position: relative;
+	left: 126px;
+	top: 0;
+	display: none;
+	color:red;
+}
+
+.card:hover .close span{
+display: block;
+cursor:pointer;
+}
+
+.card:hover .edit {
+	display: block;
+	cursor:pointer;
+}
+</style>

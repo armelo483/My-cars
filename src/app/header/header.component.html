@@ -1,0 +1,33 @@
+
+<nav class="navbar navbar-expand-lg navbar-dark indigo fixed-top">
+  <a class="navbar-brand" href="#">Parc Auto</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active" style="margin-right: 30px;" routerLinkActive="active" *ngIf="isAuth">
+        <a routerLink="cars">Liste des voitures
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a (click)="onSignOut()"
+           style="cursor:pointer"
+           *ngIf="isAuth">Déconnexion</a>
+      </li>
+      <li routerLinkActive="active" *ngIf="!isAuth" class="nav-item">
+        <a routerLink="auth/signup">Créer un compte</a>
+      </li>
+	   <li routerLinkActive="active" *ngIf="!isAuth" class="nav-item">
+        <a routerLink="auth/signin">Se connecter</a>
+      </li>
+    </ul>
+    <span class="navbar-text white-text">
+      Parc Automobile
+    </span>
+  </div>
+</nav>
+
+

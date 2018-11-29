@@ -1,0 +1,41 @@
+<div class="row"  style="margin-top:20px;">
+  <div class="col-sm-8 col-sm-offset-2">
+    <h2>Ajouter une nouvelle voiture à votre parc</h2>
+    <form [formGroup]="carForm" (ngSubmit)="onSaveCar()">
+      <div class="form-group">
+        <label for="marque">Marque</label>
+        <input type="text"
+               id="marque"
+               class="form-control"
+               formControlName="marque">
+      </div>
+	  
+	  <div class="form-group">
+        <label for="description">Prix</label>
+        <input type="text"
+               id="prix"
+               class="form-control"
+               formControlName="prix">
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input type="text"
+               id="description"
+               class="form-control"
+               formControlName="description">
+      </div>
+	  
+	  <div class="form-group">
+    <label>Ajouter une photo</label>
+    <input type="file" (change)="detectFiles($event)"
+           class="form-control" accept="image/*">
+    <p class="text-success" *ngIf="fileUploaded">Fichier chargé !</p>
+</div>
+	  
+      <button class="btn btn-primary"
+              type="submit" *ngIf="!carForm.invalid && fileUploaded"
+              >Ajoutez!</button>
+    </form>
+    <p class="text-danger">{{ errorMessage }}</p>
+  </div>
+</div>
